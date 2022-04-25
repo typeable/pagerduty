@@ -53,7 +53,7 @@ import           Network.PagerDuty.Internal.TH
 import           Data.Time.Locale.Compat
 
 newtype CSV a = CSV [a]
-    deriving (Eq, Show, Monoid)
+    deriving (Eq, Show, Semigroup, Monoid)
 
 makePrisms ''CSV
 
@@ -70,7 +70,7 @@ instance ToByteString a => ToJSON (CSV a) where
     toJSON = String . Text.decodeUtf8 . toByteString'
 
 newtype List a = L [a]
-    deriving (Eq, Show, Monoid)
+    deriving (Eq, Show, Semigroup, Monoid)
 
 deriveJSON ''List
 makePrisms ''List
@@ -310,11 +310,13 @@ data Path where
     Path :: Path
     Seg  :: ToByteString a => a -> Path
 
+instance Semigroup Path where
+    x <> Path      = x
+    Path <> y      = y
+    Seg x <> Seg y = Seg (builder x <> "/" <> builder y)
+
 instance Monoid Path where
-    mempty                  = Path
-    mappend x Path          = x
-    mappend Path y          = y
-    mappend (Seg x) (Seg y) = Seg (builder x <> "/" <> builder y)
+    mempty = Path
 
 instance IsString Path where
     fromString = Seg
