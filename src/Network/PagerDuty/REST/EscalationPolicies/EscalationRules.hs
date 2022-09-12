@@ -67,7 +67,7 @@ module Network.PagerDuty.REST.EscalationPolicies.EscalationRules
 import           Control.Applicative              ((<$>))
 import           Control.Lens                     hiding ((.=))
 import           Data.Aeson
-import qualified Data.HashMap.Strict              as Map
+import qualified Data.Aeson.KeyMap                as Map
 import           Data.Text                        (Text)
 import           Network.HTTP.Types
 import           Network.PagerDuty.Internal.TH

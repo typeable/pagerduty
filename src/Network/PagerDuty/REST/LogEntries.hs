@@ -111,12 +111,11 @@ module Network.PagerDuty.REST.LogEntries
     , nAddress
     ) where
 
-import           Control.Applicative
 import           Control.Lens                     hiding (Empty)
 import           Data.Aeson
 import           Data.Aeson.Lens
+import qualified Data.Aeson.KeyMap              as Map
 import           Data.Default.Class
-import qualified Data.HashMap.Strict              as Map
 import           Data.Text                        (Text)
 import qualified Data.Text                        as Text
 import           Data.Time

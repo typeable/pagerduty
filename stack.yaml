@@ -1,1 +1,7 @@
-stack-8.0.1.yaml
+resolver: lts-19.23
+
+packages:
+- .
+
+nix:
+  packages: [zlib]

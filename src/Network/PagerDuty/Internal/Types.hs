@@ -29,14 +29,14 @@ module Network.PagerDuty.Internal.Types where
 import           Control.Applicative
 import           Control.Lens                     hiding ((.=), Empty)
 import           Control.Monad.IO.Class
-import           Data.Aeson                       hiding (Error)
+import           Data.Aeson                       hiding (Error, Key)
+import qualified Data.Aeson.KeyMap as Map
 import           Data.Aeson.Types                 (Parser)
 import           Data.ByteString                  (ByteString)
 import qualified Data.ByteString.Char8            as BS
 import           Data.ByteString.Conversion       hiding (List)
 import           Data.Default.Class
 import           Data.Function                    (on)
-import qualified Data.HashMap.Strict              as Map
 import           Data.List                        (deleteBy, intersperse)
 import           Data.Monoid
 import           Data.String

@@ -81,7 +81,7 @@ module Network.PagerDuty.Integration
 import           Control.Lens
 import           Control.Monad.IO.Class
 import           Data.Aeson
-import qualified Data.HashMap.Strict              as Map
+import qualified Data.Aeson.KeyMap                as Map
 import           Data.Text                        (Text)
 import           Network.HTTP.Client              (Manager)
 import qualified Network.HTTP.Client              as Client

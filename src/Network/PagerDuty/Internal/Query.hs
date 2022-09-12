@@ -59,8 +59,8 @@ gqueryWith :: forall a. (Generic a, HasDatatypeInfo a, All2 QueryValues (Code a)
        -> a
        -> Query
 gqueryWith o a = case datatypeInfo (Proxy :: Proxy a) of
-    ADT     _ _ cs -> go cs         (from a)
-    Newtype _ _ c  -> go (c :* Nil) (from a)
+    ADT     _ _ cs _ -> go cs         (from a)
+    Newtype _ _ c    -> go (c :* Nil) (from a)
   where
     go :: (All2 QueryValues xss, SListI xss)
        => NP ConstructorInfo xss
