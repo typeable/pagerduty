@@ -42,6 +42,7 @@ module Control.Monad.Trans.PagerDuty
     ) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.Except             (MonadError (..))
